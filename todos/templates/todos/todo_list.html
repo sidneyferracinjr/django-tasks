@@ -19,15 +19,16 @@
       <tbody>
         {% for todo in todo_list %}
           <tr>
-          <th scope="row">{{ todo.id }}</th>
-          <td>{{ todo.title }}</td>
-          <td>{{ todo.created_at }}</td>
-          <td>{{ todo.deadline }}</td>
-          <td>{{ todo.finished_at|default:"-" }}</td>
-          <td>
-            <button type="button" class="btn btn-primary">Concluir</button>
-            <button type="button" class="btn btn-danger">Excluir</button>
-          </td>
+            <th scope="row">{{ todo.id }}</th>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.created_at }}</td>
+            <td>{{ todo.deadline }}</td>
+            <td>{{ todo.finished_at|default:"-" }}</td>
+            <td>
+              <a href="" type="button" class="btn btn-success">Concluir</a>
+              <a href="{% url 'todo_update' pk=todo.pk %}" type="button" class="btn btn-warning">Editar</a>
+              <a type="button" class="btn btn-danger">Excluir</a>
+            </td>
           </tr>
         {% endfor %}
       </tbody>
